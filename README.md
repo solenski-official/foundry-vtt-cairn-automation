@@ -1,67 +1,43 @@
-# FoundryVTT - Typescript + Gulp + Less Module/System Template
+# About
+A template for creating foundry modules using typescript. Project files are setup to be hot reloaded.
+Information on hot module replacement: https://webpack.js.org/concepts/hot-module-replacement/
 
-This is a relatively barebones module template for FoundryVTT. It is built using Gulp + Typescript and serves as a starter point for all module development. The [LESS](https://lesscss.org/) CSS pre-processor is used for stylesheets. The main purpose of this methodolgy is allowing easy usage of third party libraries, utility functions, etc.
+# Setup:
+About Bundler:  
+This project uses webpack to bundle your files. What this means is that every script file in src/ will get 'bundled' into one output .js file in dist/.
+Likewise every static file (.html, .json, etc.) in static/ will get moved to dist.  
+Because of this you should NOT have your development working directory inside the foundryuser folder. Instead you should follow the instructions below
+for setting up symantic links between the dist/ folder and foundryuser.
 
-## Notes
-- The entry point is index.ts inside of the Source folder.
-- The output files will go inside of a "dist" folder after a build. There will be one JavaScript file called "bundle.js", and a list of css files, as well as any other assets you include.
-- This template has an automatic build and publish pipeline to streamline the process of developing and updating modules.
-- The Logger class inside of Utils exists to log with neat colours and proper timestamps with all log messages. Use this over console.log.
 
-## Foundry Path
-For the build pipeline to work properly you must define an environment variable called `FOUDNRY_PATH` that points to the save data directory. Example: 
-Windows Powershell:
-`[Environment]::SetEnvironmentVariable("FOUNDRY_PATH", ${Env:localappdata}+"\FoundryVTT", "User")`
+- Run npm install
+- Rename module.ts to your chosen module name.
+- Rename the references to module.ts in webpack.config.js file. (Line 26)
+- Fill in module.json with actual information.
+- run: npm run build  
+- Create a symantic link between the dist/ folder to a module folder in FoundryUser/Data/modules/[MODULE_NAME]  
+--	Instructions (for windows) 
+--	Open a command prompt and navigate to FoundryUser/Data/modules   
+--	Run: mklink /D MODULE_NAME [DEVELOPMENT_PATH]/dist  
 
-Linux:
-Add `FOUNDRY_PATH="~/PATH/TO/FOUNDRY"; export FOUNDRY_PATH` to ~/.profile
+A note on typescript, it is completely optional and if you do not wish to use then rename any .ts files and their references to .js.
 
-## Running
-There are a few in-built commands as part of package.json. If you just want to get started with the template, you can jump right in with the following commands:
-```bash
-git clone git@github.com:Lazrius/FoundryVTT-Typescript-Module-Template.git
+# Usage:
+Development: 
+To run with hotswap enabled run the command: npm run start
 
-: Replace MyCoolModule with whatever you want to call it.
-mv FoundryVTT-Typescript-Module-Template MyCoolModule
-cd MyCoolModule
+Release:
+To ready the project for release run the command: npm run build:production
 
-: You\'ll need to change the remote to be away from the template remote.
-git remote set-url origin git@github.com:YourName/YourRepo.git
+CD/CI:
+This template is setup with automatic github release, developed by League of Foundry Developers in
+their FoundryVtt-Module-Template. https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template 
 
-: Install our dependcies
-npm install
-: Run the build!
-npm run build
-```
+# Troubleshooting:
+Hot Reload force refreshes my page!
+ - access foundry through localhost:8080 instead of localhost:30000
+ - You might have multiple modules running HMR. It is critical that if you are working on multiple modules that only a single module is using hot module reload at a time. 
 
-Ideally, you should use the GitHub template system over the above method, but the instructions are there should you need them.
-
-### Commands:
-The following commands are built into the project.
-- npm run build
-- npm run build:watch
-- npm run clean
-- npm run package "1.0.0" (replace the version number here with whatever version you are publishing)
-
-Build will convert all of your TS files into a single bundle.js, and all of your less style sheets into css versions (remember to have them included in your module.json)
-build:watch will rebuild whenever the files change
-Clean will remove the dist folder and any remaining build artefacts.
-
-Package will perform all the prior steps, but will then change all references to the internal version with the new version specified. After doing such, it will generate a new zip file inside of a "package" folder, and automatically commit the file for you.
-This commit can then be pushed, and properly updated for people using the module to easily update their own copies.
-
-## Renaming the project.
-Due to the build pipeline, it's not as simple as just changing a few names and being done with it. In order to properly name your module, you'll need to update the name/path inside of: 
-- package.json 
-- foundryconfig.json
-- Source/Style/lazrius-foundry-template.less (rename the file to the new project name)
-- Source/module.json (update the following fields: url, manifest, download, styles)
-- Source/Globals.ts - Change ModuleName to match what is written in module.json
-
-## Contributing / Ideas
-I am happy for anyone to create issues or pull requests for extra things inside of this template. Please do inform me of any errors that you find.
-
-## Main Credits
-- [League of Foundry Developers](https://github.com/League-of-Foundry-Developers/foundry-vtt-types) for their work on Foundry VTT Types.
-- [studio315b](https://gitlab.com/studio315b/foundryvtt-tools) for his/her work on the Foundry Toolkit, which I used as basis for this project.
-- [Foundry Gaming](https://foundryvtt.com) for their amazing work on the VTT we all know and love.
+# Credits:
+Used webpack and setup files as reference: https://github.com/anvil-vtt/FateX   
+Used github workflow and template reference: https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template   
