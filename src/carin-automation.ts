@@ -92,10 +92,10 @@ function PatchHotbar() {
 
 function createMacroAdv(actor: any, item: any) {
     const command = `game.cairn.rollItemMacroAdvantage("${actor.id}");`;
-    let macro = game.macros?.find((m) => m.name === item.name + " Advantage" && (m as any).command === command);
+    let macro = game.macros?.find((m) => m.name === item.name + game.i18n.localize("CAIRN.Advantage") && (m as any).command === command);
     if (!macro) {
         Macro.create({
-            name: item.name + " Advantage",
+            name: item.name + " " + game.i18n.localize("CAIRN.Advantage"),
             type: "script",
             img: item.img,
             command,
@@ -110,10 +110,10 @@ function createMacroAdv(actor: any, item: any) {
 
 function createMacroDis(actor: any, item: any) {
     const command = `game.cairn.rollItemMacroDisadvantage("${actor.id}");`;
-    let macro = game.macros?.find((m) => m.name === item.name + " Disadvantage" && (m as any).command === command);
+    let macro = game.macros?.find((m) => m.name === item.name + " " + game.i18n.localize("CAIRN.Disadvantage") && (m as any).command === command);
     if (!macro) {
         Macro.create({
-            name: item.name + " Disadvantage",
+            name: item.name + " " + game.i18n.localize("CAIRN.Disadvantage"),
             type: "script",
             img: item.img,
             command,

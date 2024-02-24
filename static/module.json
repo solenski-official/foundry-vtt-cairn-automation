@@ -22,6 +22,11 @@
       "lang": "en",
       "name": "English",
       "path": "languages/en.json"
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "languages/pl.json"
     }
   ],
   "url": "https://github.com/solenski-official/foundry-vtt-cairn-automation",
