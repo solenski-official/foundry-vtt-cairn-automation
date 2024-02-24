@@ -9,7 +9,7 @@
   ],
   "library": false,
   "esmodules": [
-    "module.js"
+    "/dist/module.js"
   ],
   "scripts": [
 
@@ -24,9 +24,9 @@
       "path": "languages/en.json"
     }
   ],
-  "url": "This is auto replaced",
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
+  "url": "https://github.com/solenski-official/foundry-vtt-cairn-automation",
+  "manifest": "https://raw.githubusercontent.com/solenski-official/foundry-vtt-cairn-automation/main/dist/module.json",
+  "download": "https://raw.githubusercontent.com/solenski-official/foundry-vtt-cairn-automation/main/CairnAutomated.zip",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "10",
