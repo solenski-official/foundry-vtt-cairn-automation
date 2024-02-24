@@ -1,3 +1,8 @@
 {
-  "CAIRN.RollingDmgWith" : "Rolling Damage with"
+  "CAIRN.RollingDmgWith" : "Rolling Damage with",
+  "CAIRN.Save": "{key} save",
+  "STR": "STR",
+  "CAIRN.Success": "Success",
+  "CAIRN.Fail": "Fail"
+
 }

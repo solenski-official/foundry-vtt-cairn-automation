@@ -9,7 +9,7 @@
   ],
   "library": false,
   "esmodules": [
-    "/dist/module.js"
+    "module.js"
   ],
   "scripts": [
 

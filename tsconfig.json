@@ -18,10 +18,6 @@
     "strictPropertyInitialization": true /* Enable strict checking of property initialization in classes. */,
     "noImplicitThis": false /* Raise error on 'this' expressions with an implied 'any' type. */,
 
-    /* Additional Checks */
-    "noUnusedLocals": true /* Report errors on unused locals. */,
-    "noUnusedParameters": true /* Report errors on unused parameters. */,
-    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
     "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
 
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
