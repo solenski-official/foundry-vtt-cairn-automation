@@ -104,6 +104,8 @@ module.exports = (env) => {
                 patterns: [{
                     from: "static",
                     noErrorOnMissing: true
+                }, { 
+                    from: "module.json"
                 }],
             }),
         ],
