@@ -28,7 +28,7 @@ jobs:
       
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d+%H:%M')"
+        run: echo "::set-output name=date::$(date +'%Y.%m.%d.%H.%M')"
 
       # Substitute the Manifest and Download URLs in the system.json
       - name: Substitute Manifest and Download Links For Versioned Ones
